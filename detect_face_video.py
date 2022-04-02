@@ -4,11 +4,12 @@ import cv2
 face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
 
 # To capture video from webcam. 
+# You can change the value in VideoCapture depending on if you have virtual cameras setup
 cap = cv2.VideoCapture(0)
 # To use a video file as input 
 # cap = cv2.VideoCapture('filename.mp4')
 
-while True:
+while cap.isOpened():
     # Read the frame
     _, img = cap.read()
 
@@ -32,3 +33,4 @@ while True:
         
 # Release the VideoCapture object
 cap.release()
+cv2.destroyAllWindows()
